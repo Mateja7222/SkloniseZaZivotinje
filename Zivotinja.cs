@@ -13,13 +13,12 @@ namespace SkloniseZaZivotinje
         public string Vrsta { get; set; }
         public string Ime { get; set; }
         public double Tezina { get; set; }
-
         public abstract void Upisi(StreamWriter f);
         public abstract void Citaj(StreamReader f, string vrsta);
 
         public override string ToString()
         {
-            return $"{Ime} {Tezina} kg";
+            return Ime + "-" + Convert.ToString(Tezina);
         }
     }
 }

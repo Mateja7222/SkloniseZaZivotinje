@@ -18,10 +18,47 @@ namespace SkloniseZaZivotinje
         {
             InitializeComponent();
         }
-
+        float prosekPa;
+        float prosekMa;
         private void Form1_Load(object sender, EventArgs e)
         {
             UcitajZivotinje();
+            float sumaPas = 0;
+            int brojPasa = 0;
+
+            for (int i = 0; i < zivotinje.Count; i++)
+            {
+                if (zivotinje[i] is Pas pas)
+                {
+                    sumaPas = sumaPas + Convert.ToSingle(pas.Tezina);
+                    brojPasa++;
+                }
+            }
+
+            if (brojPasa != 0)
+            {
+                prosekPa = sumaPas / brojPasa;
+            }
+
+
+            float sumaMacka = 0;
+            int brojMacki = 0;
+
+            for (int i = 0; i < zivotinje.Count; i++)
+            {
+                if (zivotinje[i] is Macka macka)
+                {
+                    sumaMacka = sumaMacka + Convert.ToSingle(macka.Tezina);
+                    brojMacki++;
+                }
+            }
+
+            if (brojMacki != 0)
+            {
+
+                prosekMa = sumaMacka / brojMacki;
+
+            }
         }
         void UcitajZivotinje()
         {
@@ -72,16 +109,13 @@ namespace SkloniseZaZivotinje
                 }
             }
         }
-        float prosekPas;
-        float prosekMacka;
+
         private void button2_Click(object sender, EventArgs e)
         {
-            double prosekPa = zivotinje.OfType<Pas>().Average(z => z.Tezina);
-            double prosekMa = zivotinje.OfType<Macka>().Average(z => z.Tezina);
+
+            
             textBox1.Text = prosekPa.ToString();
             textBox2.Text = prosekMa.ToString();
-            prosekPas = Convert.ToSingle (prosekPa);
-            prosekMacka = Convert.ToSingle(prosekMa);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -172,7 +206,7 @@ namespace SkloniseZaZivotinje
                     {
                         Refresh();
                         o = Convert.ToSingle(nzivotinja.Tezina);
-                        r = o / prosekPas;
+                        r = o / prosekPa;
                         a = a * r;
                         b = b * r;
                         p.CrtajGlavuPsa(g, x, y, a, b, r);
@@ -181,7 +215,7 @@ namespace SkloniseZaZivotinje
                     {
                         Refresh();
                         o = Convert.ToSingle(nzivotinja.Tezina);
-                        r = o / prosekMacka;
+                        r = o / prosekMa;
                         a = a * r;
                         b = b * r;
                         m.CrtajGlavuMacke(g, x, y, a, b, r);

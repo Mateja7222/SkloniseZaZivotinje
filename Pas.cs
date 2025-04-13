@@ -29,14 +29,14 @@ namespace SkloniseZaZivotinje
         public override void Citaj(StreamReader f, string vrsta)
         {
             Ime = f.ReadLine();
-            Tezina = double.Parse(f.ReadLine());
+            Tezina = Convert.ToDouble(f.ReadLine());
             Rasa = f.ReadLine();
-            Vakcinisan = bool.Parse(f.ReadLine());
+            Vakcinisan = Convert.ToBoolean(f.ReadLine());
         }
 
         public override string ToString()
         {
-            return base.ToString() + $", Rasa: {Rasa}, Vakcinisan: {Vakcinisan}";
+            return Ime+":"+Convert.ToString(Tezina)+" kg ,Rasa:"+Rasa+",Vakcinisan:"+Vakcinisan;
         }
 
         public void CrtajGlavuPsa(Graphics g, int x, int y, float a, float b, float pr)
