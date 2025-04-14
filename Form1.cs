@@ -22,7 +22,27 @@ namespace SkloniseZaZivotinje
         float prosekMa;
         private void Form1_Load(object sender, EventArgs e)
         {
-            UcitajZivotinje();
+            zivotinje.Clear();
+            listBox1.Items.Clear();
+            StreamReader f = new StreamReader("zivotinje.txt");
+            while (!f.EndOfStream)
+            {
+                string vrsta = f.ReadLine();
+                Zivotinja z = null;
+
+                if (vrsta == "Pas")
+                    z = new Pas();
+                else if (vrsta == "Macka")
+                    z = new Macka();
+
+                if (z != null)
+                {
+                    z.Citaj(f, vrsta);
+                    zivotinje.Add(z);
+                    listBox1.Items.Add(z.ToString());
+                }
+            }
+            f.Close();
             float sumaPas = 0;
             int brojPasa = 0;
 
@@ -157,7 +177,27 @@ namespace SkloniseZaZivotinje
             }
 
             MessageBox.Show("Životinja dodata!");
-            UcitajZivotinje();
+            zivotinje.Clear();
+            listBox1.Items.Clear();
+            StreamReader o = new StreamReader("zivotinje.txt");
+            while (!o.EndOfStream)
+            {
+                string vrsta = o.ReadLine();
+                Zivotinja z = null;
+
+                if (vrsta == "Pas")
+                    z = new Pas();
+                else if (vrsta == "Macka")
+                    z = new Macka();
+
+                if (z != null)
+                {
+                    z.Citaj(o, vrsta);
+                    zivotinje.Add(z);
+                    listBox1.Items.Add(z.ToString());
+                }
+            }
+            o.Close();
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -178,6 +218,13 @@ namespace SkloniseZaZivotinje
                     }
                 }
                 else if (radioButton4.Checked && z is Macka)
+                {
+                    if (z.Ime.ToLower().StartsWith(unos))
+                    {
+                        listBox1.Items.Add(z.ToString());
+                    }
+                }
+                else if (radioButton5.Checked)
                 {
                     if (z.Ime.ToLower().StartsWith(unos))
                     {
@@ -228,6 +275,11 @@ namespace SkloniseZaZivotinje
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

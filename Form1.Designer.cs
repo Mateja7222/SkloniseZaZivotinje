@@ -51,6 +51,7 @@ namespace SkloniseZaZivotinje
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // listBox1
@@ -173,7 +174,7 @@ namespace SkloniseZaZivotinje
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(195, 127);
+            this.radioButton4.Location = new System.Drawing.Point(154, 127);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(58, 17);
             this.radioButton4.TabIndex = 13;
@@ -250,15 +251,28 @@ namespace SkloniseZaZivotinje
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(700, 67);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(116, 13);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Rasa";
+            this.label6.Text = "Rasa psa/ Boja macke";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(218, 127);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(44, 17);
+            this.radioButton5.TabIndex = 22;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Sve";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 556);
+            this.Controls.Add(this.radioButton5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -313,6 +327,7 @@ namespace SkloniseZaZivotinje
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton radioButton5;
     }
 }
 
